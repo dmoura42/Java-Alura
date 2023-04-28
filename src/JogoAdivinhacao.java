@@ -6,7 +6,7 @@ public class JogoAdivinhacao {
         int numeroAleatorio = new Random().nextInt(100);
         System.out.println(numeroAleatorio);
         Scanner leitura = new Scanner(System.in);
-        int jogadas = 5;
+        int jogadas = 0;
 
         System.out.println("""
                 Vamos jogar o jogo da adivinhação?
@@ -14,7 +14,7 @@ public class JogoAdivinhacao {
                 Boa sorte!
                 """);
 
-        while (jogadas > 0) {
+        while (jogadas < 5) {
             System.out.println("Escolha um número de 1 a 100: ");
             int numeroEscolhido = leitura.nextInt();
             if (numeroEscolhido == numeroAleatorio) {
@@ -25,7 +25,10 @@ public class JogoAdivinhacao {
             } else {
                 System.out.println("O numero sorteado é menor que o escolhido.");
             }
-            jogadas--;
+            jogadas++;
+        }
+        if (jogadas == 5) {
+            System.out.println("Voce nao foi capaz de descobrir o numero em 5 rodadas. O numero sorteado era " + numeroAleatorio);
         }
 
 
